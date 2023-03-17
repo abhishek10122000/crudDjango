@@ -25,6 +25,7 @@ urlpatterns = [
     path('apply/',apply,name='apply'),
     path('edit/<int:id>/',edit,name='edit'),
     path('login/',login,name='login'),
+    path('search/',search,name='search'),
     path('logout/',logoutAuth,name='logout'),
     path('register/',register,name='register'),
 ]

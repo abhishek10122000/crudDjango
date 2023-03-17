@@ -5,8 +5,9 @@
             <div class="col">
                 <h2 class="px-5">Register Page</h2>
                <form action="{% url 'register' %}" method="post">
+                 {% load crispy_forms_tags %}
                 {% csrf_token %}
-                {{form}}
+                {{form|crispy}}
                 <input type="submit" class="btn btn-success w-100 my-2">
             </form>
         </div>
