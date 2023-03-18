@@ -10,13 +10,15 @@ from django.db.models import Q
 def homepage(r):
     return render(r, 'home.html')
 
+def sear(name):
+    code=name
+    
+    
 def search(r):
     code=r.GET.get('search')
-    try:
-        searchStudent=StudentForm.objects.filter(Q(fitst_name__icontains=code)|Q(last_name__icontains=code)| Q(mobile__icontains=code))
-        return redirect(details,searchStudent.id)
-    except:
-        return redirect(details)
+    std={}
+    std['std']=Student.objects.filter(Q(first_name__icontains=code)|Q(last_name__icontains=code)| Q(mobile__icontains=code))
+    return render(r,'details.html', std)
 
 @login_required()
 def details(r):
